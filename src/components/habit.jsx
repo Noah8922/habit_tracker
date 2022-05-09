@@ -22,10 +22,11 @@ class Habit extends Component {
     /** 삼항연사자 생각좀 해라!!!! */
   };
   render() {
+    const { name, count } = this.props.habit;
     return (
       <li className="habit">
-        <span className="habit-name">Reading</span>
-        <span className="habit-count">{this.state.count}</span>
+        <span className="habit-name">{name}</span>
+        <span className="habit-count">{count}</span>
         <button
           className="habit-button habit-increase"
           onClick={this.handleIncreament}
