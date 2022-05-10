@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./app.css";
 import Habits from "./components/habits";
 import Navbar from "./components/navbar";
+import ResetButton from "./components/resetButton";
 
 class App extends Component {
   state = {
@@ -41,6 +42,10 @@ class App extends Component {
     this.setState({ habits });
   };
 
+  handleReset = (habits) => {
+    this.setState([habits]);
+  };
+
   render() {
     const totalCount = this.state.habits.filter(
       (item) => item.count > 0
@@ -55,6 +60,7 @@ class App extends Component {
           onDelete={this.handleDelete}
           onAdd={this.handleAdd}
         />
+        <ResetButton onReset={this.handleReset} />
       </>
     );
   }
