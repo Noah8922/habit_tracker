@@ -2,15 +2,16 @@ import React, { Component } from "react";
 
 class Habit extends Component {
   handleIncreament = () => {
-    this.props.onIncrement(this.props.habit.name);
+    /** console.log("여기는 habit props로 받은 onIncrement 함수 호출");*/
+    this.props.onIncrement(this.props.habit);
   };
 
   handleDecreament = () => {
-    this.props.onDecrement(this.props.habit.name);
+    this.props.onDecrement(this.props.habit);
   };
 
   handleDelete = () => {
-    this.props.onDelete(this.props.habit.name);
+    this.props.onDelete(this.props.habit);
   };
   render() {
     const { name, count } = this.props.habit;

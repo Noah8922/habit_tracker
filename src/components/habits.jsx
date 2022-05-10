@@ -11,15 +11,27 @@ class Habits extends Component {
   };
 
   handleIncreament = (habit) => {
-    console.log(`increament ${habit}`);
+    /** state 바로 변경 금지 => state를 복제해서 거기서 변경해 줄 것. */
+    const habits = [...this.state.habits];
+    const index = habits.indexOf(habit);
+    habits[index].count++;
+    this.setState({ habits });
   };
 
   handleDecreament = (habit) => {
-    console.log(`decreament ${habit}`);
+    const habits = [...this.state.habits];
+    const index = habits.indexOf(habit);
+    const count = habits[index].count - 1;
+    habits[index].count = count < 0 ? 0 : count;
+    this.setState({ habits });
   };
 
   handleDelete = (habit) => {
-    console.log(`delete ${habit}`);
+    const habits = [...this.state.habits];
+    const index = habits.indexOf(habit);
+    habits.splice(index, 1);
+    /** const habit = this.state.habits.filter(item => item.id !== habit.id) */
+    this.setState({ habits });
   };
   render() {
     return (
