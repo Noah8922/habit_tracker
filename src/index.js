@@ -4,11 +4,12 @@ import "./index.css";
 import App from "./app";
 import "@fortawesome/fontawesome-free/js/all.js";
 import SimpleHabit from "./components/simpleHabit";
+import Prac from "./prac";
 
 const rootNode = document.getElementById("root");
 const root = ReactDOM.createRoot(rootNode);
 root.render(
   <React.StrictMode>
-    <App />
+    <Prac />
   </React.StrictMode>
 );
