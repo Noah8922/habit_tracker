@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
-class Habit extends Component {
-  handleIncreament = () => {
+class Habit extends PureComponent {
+  handleIncrement = () => {
     this.props.onIncrement(this.props.habit);
   };
 
-  handleDecreament = () => {
+  handleDecrement = () => {
     this.props.onDecrement(this.props.habit);
   };
 
@@ -14,28 +14,29 @@ class Habit extends Component {
   };
 
   render() {
-    const { name, count } = this.props.habit;
+    const { name } = this.props.habit;
+    const { count } = this.props;
     return (
       <li className="habit">
         <span className="habit-name">{name}</span>
         <span className="habit-count">{count}</span>
         <button
           className="habit-button habit-increase"
-          onClick={this.handleIncreament}
+          onClick={this.handleIncrement}
         >
-          <i className="fa-solid fa-square-plus"></i>
+          <i className="fas fa-plus-square"></i>
         </button>
         <button
           className="habit-button habit-decrease"
-          onClick={this.handleDecreament}
+          onClick={this.handleDecrement}
         >
-          <i className="fa-solid fa-square-minus"></i>
+          <i className="fas fa-minus-square"></i>
         </button>
         <button
           className="habit-button habit-delete"
           onClick={this.handleDelete}
         >
-          <i className="fa-solid fa-trash"></i>
+          <i className="fas fa-trash"></i>
         </button>
       </li>
     );
